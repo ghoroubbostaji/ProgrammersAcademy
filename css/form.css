@@ -21,6 +21,7 @@
 	transition: 0.5s ease;
     -o-transition: 0.5s ease;
     -webkit-transition: 0.5s ease;
+
 }
 
 #form.processing .form_spinner {
@@ -43,7 +44,8 @@
 
 
 #form input {
-	width: 100%;
+	margin-left: 100%;
+	width: 150%;
 	height: 33px;
 	float:left;
 	box-sizing: border-box;
@@ -167,12 +169,13 @@
 	font-size: 0;
 	line-height: 0;
 	padding-top: 29px;
-	text-align: right;
+	text-align: center; 
 }
 
 .btns .btn {
-	margin-top: 0;	
+	margin-top: 0;
 	padding: 1px 30px 4px;
+
 }
 
 .btns .btn + .btn {
@@ -257,7 +260,7 @@ span.lab {
 
 @media only screen and (max-width: 1199px) {
 #form label {
-	float: none !important;	
+	float: none !important;
 	width: 100%;
 	margin-left: 0 !important;
 }
@@ -323,11 +326,11 @@ span.lab {
 	margin-right: 0px !important;
 }
   .btns {
-		padding-bottom: 0;  
+		padding-bottom: 0;
   }
-  
+
   #form textarea {
-		height: 300px !important; 
+		height: 300px !important;
   }
 
    #form {
@@ -336,12 +339,12 @@ span.lab {
  #form {
  	margin-bottom: 40px;
  }
-  
+
 }
 @media only screen and (max-width: 479px) {
 
   #form textarea {
-		height: 200px !important;  
+		height: 200px !important;
   }
 }
 
