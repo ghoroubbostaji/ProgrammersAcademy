@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body id="top">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<% sessions.forEach( (e) => { %>
+
+  <div style="border: solid red;">
+    <%= e.sname %> 
+    <a  href="/invite-session?sname=<%= e.sname %>"  >invite</a>
+    
+  </div>
+
+<% }); %>
+
+
+
+<footer id="footer">
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>

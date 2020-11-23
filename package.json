@@ -1,0 +1,21 @@
+{
+  "name": "Academy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "dice-random": "^1.0.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15",
+    "nodemailer": "^6.4.16",
+    "nodemon": "^2.0.6",
+    "parser": "^0.1.4"
+  }
+}

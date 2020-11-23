@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body id="top">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+
+
+  <div class="containerOfForm">
+  <h1>Create Training Session</h1><br /><br />
+
+  <form id="session_form">
+
+    <div class="form-group">
+      <label for="sname">Session</label>
+      <select class="form-control" id="sname" name="sname">
+        <option>Java Languge</option>
+        <option>Python Languge</option>
+        <option>C++ Languge</option>
+        <option>C Languge</option>
+        <option>C# Languge</option>
+        <option>JavaScript Languge</option>
+        <option>jQuery Languge</option>
+        <option>JScribt .NET Languge</option>
+        <option>MATLAB Languge</option>
+        <option>NPL Languge</option>
+        <option>Pascal Languge</option>
+        <option>Ruby Languge</option>
+      </select>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="formGroupExampleInput">Enter name of training course</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Information about the training course</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Number of Days</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>one day</option>
+        <option>two days</option>
+        <option>three days</option>
+        <option>four days</option>
+        <option>five days</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Total length of cours (in hours)</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Total hours ..">
+    </div>
+
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Maximum number of trainees</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Max num">
+    </div> -->
+
+
+  <div class="form-group">
+    <label for="instructor">Session Instructor</label>
+    <input type="text" class="form-control" id="instructor" name="instructor" placeholder="Name ..">
+  </div>
+
+  <div class="form-group">
+    <label for="instructor_email">Instructor Email</label>
+    <input type="email" class="form-control" id="instructor_email" name="instructor_email" placeholder="name@example.com">
+  </div>
+
+  <!-- <label for="exampleFormControlInput1">Level</label><br />
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+    <label class="custom-control-label" for="customRadioInline1">Beginning</label>
+  </div>
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+    <label class="custom-control-label" for="customRadioInline2">Intermediate</label>
+  </div>
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+    <label class="custom-control-label" for="customRadioInline3">advanced</label>
+  </div> -->
+
+  <div class="mt-5 mb-5">
+      <label for="sdate">Session Date</label>
+      <input type="datetime-local" id="sdate" name="sdate" class="form-control">
+  </div>
+
+
+  <!-- <label for="exampleFormControlInput1">Poster of the training course</label>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+  </div> -->
+
+  <br /><br />
+  
+    <!-- <input type="submit" > -->
+    <input type="reset" >
+  </form>
+
+  <div id="Result">
+
+  </div>
+
+  <button  onclick="send_to_server()">Submit buttonssss</button>
+  <script>
+
+    function send_to_server()
+    {
+      
+      $.ajax({
+          type: 'POST',
+          url: "/sessions",
+          data: $('#session_form').serialize(),
+
+      }).done( function (res_data) {
+
+            $("#Result").text('Successfully Added');
+      });
+
+    }
+
+
+  </script>
+
+
+</div>
+
+
+
+
+<footer id="footer">
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>
