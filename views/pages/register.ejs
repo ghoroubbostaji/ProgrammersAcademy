@@ -9,80 +9,92 @@
   <%- include('../partials/header'); %>
 </header>
 
-  <div class="containerOfForm">
-    <h2 class="textAlignCenter">Create a new account</h2><br />
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="grid_12">
+        <h3 class="ta__center">Registration</h3>
+      </div>
 
-  <form id="register_form">
 
-      <p><a href="/login">Already have an account? Log in here </a></p>
-      <hr />
+      <div class="createS_divs">
+        <form id="form" id="session_form">
+          <div id="loginPlace">
 
-      <div class="form-row">
-      <div class="col-md-6 mb-5">
-        <label for="email">Email</label>
-        <input type="Email" class="form-control" id="email" name="email"  placeholder="name@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-        <div class="valid-feedback">
-          Looks good!
+              <div class="haveAccount">
+                Already have an account? <a id="Reg" href="/login">Log in here</a>
+              </div>
+<br /><br />
+              <label for="email" class="email">
+                Email:<input type="Email" id="email"  name="email" placeholder="name@example.com" value="" data-constraints="@Required @Password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+              </label><br /><br />
+
+<br /><br />
+
+
+              <label for="pw" class="password">
+                Password:<input type="password" name="pw" id="pw" placeholder="Password.." value="" data-constraints="@Required @Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+              </label><br /><br />
+<br /><br />
+              <label for="pw2" class="password">
+                Confirm Password:<input type="password" name="pw2" id="pw2" placeholder="Confirm Password.." value="" data-constraints="@Required @Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+              </label><br /><br />
+
+              <div class="clear"></div>
+              <div id="buttonLoginMargin">
+                <div class="btns" id="bttn">
+                  <input type="reset" >
+                </div>
+              </div>
+
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+<section>
+
+        <div id="Result"> </div>
+
+
+        <div class="submitCreateSession">
+                <!-- <button class="btn btn-primary" type="submit" onclick="send_to_server()" >Register </button> -->
+                <input  id="submitBut" onclick="send_to_server()" type="button" value="Register"/>
+                <br />
+                <div class="backTo">
+                  <a href="/">Back to Home Page </a>
+                </div>
         </div>
-      </div>
-
-    </div>
-
-
-    <div class="form-row">
-    <div class="col-md-6 mb-5">
-      <label for="pw">Password</label>
-      <input type="password" class="form-control" id="pw" name="pw" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-6 mb-5">
-      <label for="pw2">Confirm Password</label>
-      <input type="password" class="form-control" name="pw2" id="pw2" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-
-      <div id="validate" class="valid-feedback">
-        Password should match
-      </div>
-    </div>
-  </div>
-  <br />
-
-  </form>
-  </div>
-
-  <button class="btn btn-primary" type="submit" onclick="send_to_server()">
-    Register
-  </button>
-  <div id="Result">
-
-  </div>
-
-
-  <script>
-
-    function send_to_server()
-    {
-      $.ajax({
-          type: 'POST',
-          url: "/trainees",
-          data: $('#register_form').serialize(),
-
-      }).done( function (res_data) {
-
-            $("#Result").text('Successfully Added');
-      });
-
-    }
-
-
-  </script>
 
 
 
-  <footer id="footer">
-    <%- include('../partials/footer'); %>
-  </footer>
+      <script>
+
+      function send_to_server()
+      {
+        $.ajax({
+            type: 'POST',
+            url: "/trainees",
+            data: $('#register_form').serialize(),
+
+        }).done( function (res_data) {
+
+              $("#Result").text('Successfully Register!!');
+        });
+
+      }
+
+      </script>
+
+</section>
+
+
+
+    <footer id="footer">
+      <%- include('../partials/footer'); %>
+    </footer>
   </body>
-  </html>
-  
+</html>
