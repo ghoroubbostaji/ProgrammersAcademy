@@ -13,22 +13,15 @@
     <div class="row">
       <div class="grid_12">
         <h3 class="ta__center">Sign In</h3>
-        <!-- <div class="map">
-          <figure class="">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24214.807650104907!2d-73.94846048422478!3d40.65521573400813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1395650655094" style="border:0"></iframe>
-          </figure>
-        </div> -->
       </div>
       <!-- <div class="grid_6"> -->
         <!-- <div class="text1 tx__1">Contact Form</div> -->
 
-
           <form id="form" >
-
-            <div class="form_spinner">
+            <!-- <div class="form_spinner">
               <img src="images/Preloader_4.gif" alt="">
             </div>
-            
+
             <div class="modal fade response-message">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -42,7 +35,9 @@
                 </div>
               </div>
             </div>
-            <div class="response-error-message"></div>
+            <div class="response-error-message"></div> -->
+            <div id="loginPlace">
+
                 <label class="name">
                   <input type="text" name="name" placeholder="User Name:" value="" data-constraints="@Required @JustLetters" />
                   <span class="empty-message">*This field is required.</span>
@@ -55,7 +50,7 @@
                 </label>
 
                 <div class="clear"></div>
-
+              <div id="buttonLoginMargin">
                 <div class="btns" id="bttn">
                   <a href="#" data-type="reset" class="btn">clear</a>
                   <a href="#" data-type="submit" class="btn">Log in</a>
@@ -64,18 +59,14 @@
                 <div class="haveAccount">
                   Don't have an account? <a id="Reg" href="Register.html">Sign up</a>
                 </div>
+              </div>
 
-
-
-
+              </div>
           </form>
-
 
     </div>
   </div>
 </section>
-
-
 
 <footer id="footer">
   <%- include('../partials/footer'); %>

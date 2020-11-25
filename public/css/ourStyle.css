@@ -3,8 +3,11 @@
 
   /* border-radius: 10%; */
 }
-.haveAccount{padding-top: 20px;margin-left: 40%;}
+.haveAccount{padding-top: 20px;margin-left: 20%;}
 .haveAccount #Reg{
 text-decoration: underline;}
 .haveAccount a:hover{
 font-size: 20px;}
+#loginPlace{float: left;
+margin-left: 36%;}
+#buttonLoginMargin{margin-right: 20%;}
