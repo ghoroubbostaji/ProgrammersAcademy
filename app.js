@@ -1,21 +1,53 @@
-
 const express = require('express');
+const app = express();
+
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
+var passport = require("passport");
+var LocalStrategy = require("passport-local");
+// var User = require("./models/user");
+var LocalStrategy = require("passport-local");
+var passportLocalMongoose = require("passport-local-mongoose");
 
-const app = express();
+
 const port = 3000;
 
 current_path = __dirname;
 
 app.use(bodyParser.urlencoded({extended : true}) ); //parses data coming from html
+//me
+app.use(require("express-session")({
+    secret:"Miss white is my cat",
+    resave: false,
+    saveUninitialized: false
+}));
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+//
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 
 //-------------------------------
 const mongoose = require('mongoose');
+var passportLocalMongoose = require("passport-local-mongoose");//me1
+
 
 mongoose.connect("mongodb://localhost:27017/academydb", {useUnifiedTopology: true, useNewUrlParser: true});
 
+// schema 1
+//me2
+var UserSchema = new mongoose.Schema({
+     username:String,
+     password:String
+});
+
+UserSchema.plugin(passportLocalMongoose);
+module.exports = mongoose.model("User",UserSchema);
+
+// schema 2
 const SessionSchema = new mongoose.Schema (
   { sname: String,
     instructor: String,
@@ -24,10 +56,13 @@ const SessionSchema = new mongoose.Schema (
   });
 const Session = mongoose.model("Session", SessionSchema);
 
+
+// schema 3
 const TraineeSchema = new mongoose.Schema (
   { email: String,
     pw: String
   });
+
 const Trainee = mongoose.model("Trainee", TraineeSchema);
 
 //--------------------------------------------------------
@@ -38,6 +73,8 @@ app.use('/css', express.static(current_path + 'public/css'));
 app.use('/js', express.static(current_path + 'public/js'));
 app.use('/images', express.static(current_path + 'public/images'));
 app.use('/fonts', express.static(current_path + 'public/fonts'));
+
+
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
