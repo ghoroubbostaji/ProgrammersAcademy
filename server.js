@@ -59,6 +59,12 @@ app.get('/invite', (req, res) =>
 
 });
 
+// app.post('/Login',(req, res) =>
+// {
+//   req.body.email
+// })
+
+
 app.post('/sessions', (req, res) =>
 {
   const s = new Session({
@@ -68,7 +74,7 @@ app.post('/sessions', (req, res) =>
     sdate:            req.body.sdate
   });
   s.save();
-  res.send(`Success fully addd the Session`)
+  res.send(`Success fully add the Session`)
 });
 
 app.get('/all-sessions', (req, res) =>
@@ -89,15 +95,18 @@ app.get('/register', (req, res) =>
 
 app.post('/trainees', (req, res) =>
 {
+  console.log(req.body)
   const s = new Trainee({
-    email:            req.body.email,
+    email:    req.body.email,
     pw:       req.body.pw,
+    role:     "trainee"
   });
   s.save();
-  res.send(`addd the Trainee Successfully`)
+  res.send(`add the Trainee Successfully`)
 });
 
 
+//--------SEND EMAIL-----------------------
 
 function send_email(to_email, session_name)
 {
@@ -125,6 +134,7 @@ function send_email(to_email, session_name)
     }
   });
 }
+//-------------------------------
 
 app.get('/invite-session', (req, res) =>
 {
@@ -137,19 +147,19 @@ app.get('/invite-session', (req, res) =>
     console.log('Emails Done!')
   });
 
-  res.send(`addd the Trainee Successfully`)
+  res.send(`add the Trainee Successfully`)
 })
 
-app.get('/invite-session', (req, res) =>
-{
-  session_id = req.query._id
-
-  res.send(`addd the Trainee Successfully`)
-});
+// app.get('/invite-session', (req, res) =>
+// {
+//   session_id = req.query._id
+//
+//   res.send(`add the Trainee Successfully`)
+// });
 
 
 //-------------------------------------------------------------------------------
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
-console.log('koko batatis');
+console.log('Welcome To Programmers Academy DB');

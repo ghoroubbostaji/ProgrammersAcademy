@@ -16,7 +16,7 @@
         <h3 class="ta__center">Create Training Session</h3>
       </div>
       <div class="createS_divs">
-        <form id="form" id="session_form">
+        <form id="form" >
           <div id="loginPlace">
             <label for="sname">Programming Languge of session: </label><br/>
               <select id="sname" name="sname">
@@ -78,7 +78,7 @@
         $.ajax({
         type: 'POST',
         url: "/sessions",
-        data: $('#session_form').serialize(),
+        data: $('#form').serialize(),
 
       }).done( function (res_data) {
 

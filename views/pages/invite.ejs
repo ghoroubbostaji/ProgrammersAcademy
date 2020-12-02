@@ -9,15 +9,67 @@
   <%- include('../partials/header'); %>
 </header>
 
-<% sessions.forEach( (e) => { %>
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="grid_12">
+        <h3 class="ta__center">Invite Trainees</h3>
+      </div>
 
-  <div style="border: solid red;">
-    <%= e.sname %> 
-    <a  href="/invite-session?sname=<%= e.sname %>"  >invite</a>
-    
+      <div  id="invite" >
+
+      <% sessions.forEach( (e) => { %>
+
+        <div>
+          <%= e.sname %>
+          <a  href="#" onclick="send_to_server('<%= e.sname %>')" >invite</a>
+<!-- /invite-session?sname=<%= e.sname %> -->
+        </div>
+
+      <% }); %>
+
+    </div>
+
+
+          <div class="backToAdmin">
+            <a id="Reg" href="/admin">Back to administration page</a>
+          </div>
+
+
+
+    </div>
   </div>
+</section>
 
-<% }); %>
+<section class="inviteMargin">
+
+        <div id="Result"> </div>
+
+
+
+      <script>
+
+      function send_to_server(e)
+      {
+
+        $.ajax({
+            type: 'GET',
+            url: `/invite-session?sname=${e}` ,
+            // data: $('#invite').serialize(),
+
+        }).done( function (res_data) {
+
+              $("#Result").text('Sucssefully invite!!');
+
+        });
+
+      }
+
+      </script>
+
+</section>
+
+
 
 
 

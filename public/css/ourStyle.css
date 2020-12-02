@@ -1,5 +1,5 @@
 /* ------------ GHoroubs' pages Style -------------------- */
-#Reg{ color: #821752; /* border-radius: 10%; */ }
+#Reg{ color: #821752;  }
 
 #loginPlace{  float: left; margin-left: 36%; }
 
@@ -25,6 +25,10 @@
 
 #sname{  padding: 10px; width: 100%; color: #615f5f;  }
 
+#invite{  font-size: 20px; margin-left: 43%;}
+
+#invite a{color: #821752; text-decoration: underline;}
+
 .administratorLinks{
           margin-left: 42%;
           color: #821752;
@@ -47,5 +51,12 @@
           }
 
 .submitCreateSession{  margin-left: 37%; display: inline-block;  }
+
+.backToAdmin{ margin-top: 90px;
+              /* margin-bottom:8%; */
+              margin-left: 43%;
+              text-decoration: underline;}
+
+.inviteMargin{margin-bottom: 30px; margin-left: 7%;}
 
 /* ------------ The end of GHoroubs' pages Style -------------------- */

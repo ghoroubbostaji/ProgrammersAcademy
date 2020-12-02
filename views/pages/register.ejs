@@ -18,7 +18,8 @@
 
 
       <div class="createS_divs">
-        <form id="form" id="session_form">
+        <form  id="form" >
+          <!-- id="session_form" -->
           <div id="loginPlace">
 
               <div class="haveAccount">
@@ -69,8 +70,6 @@
                 </div>
         </div>
 
-
-
       <script>
 
       function send_to_server()
@@ -78,11 +77,12 @@
         $.ajax({
             type: 'POST',
             url: "/trainees",
-            data: $('#register_form').serialize(),
+            data: $('#form').serialize(),
 
         }).done( function (res_data) {
 
-              $("#Result").text('Successfully Register!!');
+              $("#Result").text('S Register!!');
+
         });
 
       }

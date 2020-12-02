@@ -10,14 +10,39 @@
 </header>
 
 
-<% sessions.forEach( (e) => { %>
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="grid_12">
+        <h3 class="ta__center">Explore all courses</h3>
+      </div>
 
-  <div style="border: solid red;">
-    <%= e.instructor %> 
-    
+      <div class="">
+        <% sessions.forEach( (e) => { %>
+
+          <div>
+            <%= e.sname %> <%= e.instructor %> <%= e.sdate %>
+
+          </div>
+
+        <% }); %>
+
+
+      </div>
+
+      <br />
+      <div class="backTo">
+        <a href="/">Back to Home Page </a>
+      </div>
+
+    </div>
   </div>
+</section>
 
-<% }); %>
+
+
+
+
 
 
 
