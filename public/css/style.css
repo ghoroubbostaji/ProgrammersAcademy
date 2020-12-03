@@ -78,27 +78,6 @@ h2 {
     margin-bottom: 22px;
 }
 
-h3 {
-    font-size: 60px;
-    line-height: 60px;
-    padding-top: 71px;
-    margin-bottom: 32px;
-}
-
-h4 {
-    font-size: 40px;
-    line-height: 60px;
-    padding-top: 10px;
-    margin-bottom: 32px;
-}
-h5 {
-    font-size: 30px;
-    line-height: 60px;
-    padding-top: 10px;
-    margin-bottom: 32px;
-    color:blue;
-}
-
 .page1 h3 {
     text-align: center;
     padding-top: 40px;

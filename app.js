@@ -121,7 +121,7 @@ app.post('/sessions', (req, res) =>
 app.get('/programmingLanguages', (req, res) =>
 {
   Session.find( (err, mySessions) => {
-    res.render('pages/programmingLanguages', {title: 'Sessions', sessions: mySessions })
+    res.render('pages/programmingLanguages', {title: 'programming Languages', sessions: mySessions })
   });
 
 });
@@ -135,14 +135,14 @@ app.get('/all-sessions', (req, res) =>
 app.get('/trainers', (req, res) =>
 {
   Session.find( (err, mySessions) => {
-    res.render('pages/trainers', {title: 'Sessions', sessions: mySessions })
+    res.render('pages/trainers', {title: 'Our trainers', sessions: mySessions })
   });
 
 });
 app.get('/trainees', (req, res) =>
 {
   Session.find( (err, mySessions) => {
-    res.render('pages/trainees', {title: 'Sessions', sessions: mySessions })
+    res.render('pages/trainees', {title: 'Trainees', sessions: mySessions })
   });
 
 });

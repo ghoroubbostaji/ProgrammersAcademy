@@ -217,6 +217,27 @@
 }*/
 
 
+h3 {
+    font-size: 60px;
+    line-height: 60px;
+    padding-top: 71px;
+    margin-bottom: 32px;
+}
+
+h4 {
+    font-size: 40px;
+    line-height: 60px;
+    padding-top: 10px;
+    margin-bottom: 32px;
+}
+h5 {
+    font-size: 30px;
+    line-height: 60px;
+    padding-top: 10px;
+    margin-bottom: 32px;
+
+}
+
 
 
 #form1 .invalid .error-message, #form1 .empty .empty-message {
