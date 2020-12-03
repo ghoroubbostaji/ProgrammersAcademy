@@ -8,7 +8,7 @@
 <header>
   <%- include('../partials/header'); %>
 </header>
-<section class="content"><div class="ic">More Website Templates @ TemplateMonster.com - June 16, 2014!</div>
+<section class="content">
   <div class="container">
     <div class="row">
       <div class="grid_12">
@@ -16,26 +16,26 @@
       </div>
 
 
-          <form id="form" >
+          <form id="form1" method="post" action="/login-page">
 
             <div id="loginPlace">
 
                 <label class="name">
-                  <input type="text" name="name" placeholder="User Name:" value="" data-constraints="@Required @JustLetters" />
-                  <span class="empty-message">*This field is required.</span>
-                  <span class="error-message">*This is not a valid name.</span>
+                  <input type="text" id="email"  name="email" placeholder="User Name:" value="" data-constraints="@Required @JustLetters" />
+
                 </label>
                 <label class="email">
-                  <input type="password" name="email" placeholder="Password:" value="" data-constraints="@Required @Password" />
-                  <span class="empty-message">*This field is required.</span>
-                  <span class="error-message">*This is not a valid email.</span>
+                  <input type="password" name="pw" id="pw" placeholder="Password:" value="" data-constraints="@Required @Password" />
+
                 </label>
 
                 <div class="clear"></div>
                 <div id="buttonLoginMargin">
                 <div class="btns" id="bttn">
                   <a href="#" data-type="reset" class="btn">clear</a>
-                  <a href="#" data-type="submit" class="btn">Log in</a>
+                  <!-- <a  data-type="submit" class="btn">Log in</a> -->
+                  <input  type="submit" value="login"/>
+
 
                 </div>
                 <div class="haveAccount">
@@ -49,6 +49,8 @@
     </div>
   </div>
 </section>
+
+
 
 <footer id="footer">
   <%- include('../partials/footer'); %>

@@ -60,7 +60,8 @@ const Session = mongoose.model("Session", SessionSchema);
 // schema 3
 const TraineeSchema = new mongoose.Schema (
   { email: String,
-    pw: String
+    pw: String,
+    role: String
   });
 
 const Trainee = mongoose.model("Trainee", TraineeSchema);
@@ -130,6 +131,7 @@ app.get('/register', (req, res) =>
 
 });
 
+
 app.post('/trainees', (req, res) =>
 {
   console.log(req.body)
@@ -141,6 +143,7 @@ app.post('/trainees', (req, res) =>
   s.save();
   res.send(`add the Trainee Successfully`)
 });
+
 
 
 //--------SEND EMAIL-----------------------
@@ -185,7 +188,34 @@ app.get('/invite-session', (req, res) =>
   });
 
   res.send(`add the Trainee Successfully`)
-})
+});
+
+
+
+app.post('/login-page', (req,res) =>
+{
+    console.log(req.body);
+    console.log(`hi1`);
+
+    Trainee.findOne({email: req.body.email}, function(err,item){
+      if (item.email == 'gbostaji@kau.edu.sa')
+      {
+        console.log(`hi`);
+        // app.get('/admin', (req, res) => res.render("pages/admin", {title: 'Admin'}) );}
+        // app.render('pages/admin', {title: 'Admin'});
+           res.render("pages/admin", {title: 'Admin'}) ;
+
+
+      }
+      else{ console.log(`thnks`)}
+    });
+
+});
+
+app.post('/kos', (req,res) =>
+{
+  console.log('thnks');
+});
 
 // app.get('/invite-session', (req, res) =>
 // {
@@ -197,6 +227,6 @@ app.get('/invite-session', (req, res) =>
 
 //-------------------------------------------------------------------------------
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`);
 });
 console.log('Welcome To Programmers Academy DB');
