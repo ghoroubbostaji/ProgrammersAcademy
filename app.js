@@ -87,6 +87,10 @@ app.get('/login', (req, res) => res.render("pages/login", {title: 'Login'}) );
 
 app.get('/admin', (req, res) => res.render("pages/admin", {title: 'Admin'}) );
 
+app.get('/services', (req, res) => res.render("pages/services", {title: 'Services'}) );
+app.get('/contacts', (req, res) => res.render("pages/contacts", {title: 'Contacts'}) );
+app.get('/aboutus', (req, res) => res.render("pages/aboutus", {title: 'About Us'}) );
+
 app.get('/create_session', (req, res) => res.render("pages/create_session", {title: 'New Session'}) );
 app.get('/reminde', (req, res) => res.render("pages/reminde", {title: 'Reminde'}) );
 app.get('/invite', (req, res) =>

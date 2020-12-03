@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body id="top">
+<!--==============================
+              header
+=================================-->
+<header>
+<!--==============================
+            Stuck menu
+=================================-->
+<%- include('../partials/header'); %>
+</header>
+<!--=====================
+          Content
+======================-->
+<section class="content"><div class="ic">More Website Templates @ TemplateMonster.com - June 16, 2014!</div>
+<center>
+<h2>Contacts ..</h2>
+
+
+<div style="font-size: 1.2rem;line-height: 1.5;"> If you wish to get in touch with us, or if you having technical problems or need help you can fill the following form:
+</div>
+<br>
+<br>
+</center>
+  <div class="container">
+    <div class="row">
+      <div class="grid_8"style="padding:0 12rem;">
+        <div class="text1 tx__1 ta__center">Contact Form</div>
+          <form action="mailto:maryam-ba@hotmail.com" method="post" enctype="text/plain" >
+            <div class="response-error-message"></div>
+
+                <label class="name">
+                  <input type="text" name="name" placeholder="Name:" value=""required  style="width:60%;	height: 33px;
+                  box-sizing: border-box;	border: 1px solid #d3cdcd; color: #615f5f;font: 300 14px/20px 'Open Sans', sans-serif;
+                  margin-bottom:2rem;"/>
+                  </label>
+                <label class="email">
+                  <input type="email" name="email" placeholder="E-mail:" value=""required style="width:60%;	height: 33px;
+                  box-sizing: border-box;	border: 1px solid #d3cdcd; color: #615f5f;font: 300 14px/20px 'Open Sans', sans-serif;
+                  margin-bottom:2rem;" />
+                </label>
+                <label for="exampleFormControlSelect2"class="form-control"style="padding-right:25rem;" >What are you having an issue with? (optional)
+                <select  name="issue" id="exampleFormControlSelect2"style="width:100%;	height: 33px;
+                	border: 1px solid #d3cdcd; color: #615f5f;font: 300 14px/20px 'Open Sans', sans-serif;
+                margin-bottom:2rem;margin-left:0;">
+                  <option>...</option>
+                  <option>Getting started</option>
+                  <option>Trainer</option>
+                  <option>Receiving emails</option>
+                  <option>Technical issue</option>
+                  <option>My account</option>
+                  <option>Suggestion</option>
+                  <option>Something else</option>
+                </select>
+                </label>
+
+                <label class="message">
+                  <textarea name="message" placeholder="Message:"required style="width:100%;	height:150px;
+                  box-sizing: border-box;	border: 1px solid #d3cdcd; color: #615f5f;font: 300 14px/20px 'Open Sans', sans-serif;
+                  margin-bottom:2rem;"></textarea>
+                </label>
+
+                <div class="clear"></div>
+                <button class="btn" type="submit">Submit </button>
+
+
+
+              </form>
+          </div>
+          </div>
+      </div>
+</section>
+<!--==============================
+              footer
+=================================-->
+<footer id="footer">
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>
