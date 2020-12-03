@@ -85,6 +85,20 @@ h3 {
     margin-bottom: 32px;
 }
 
+h4 {
+    font-size: 40px;
+    line-height: 60px;
+    padding-top: 10px;
+    margin-bottom: 32px;
+}
+h5 {
+    font-size: 30px;
+    line-height: 60px;
+    padding-top: 10px;
+    margin-bottom: 32px;
+    color:blue;
+}
+
 .page1 h3 {
     text-align: center;
     padding-top: 40px;
@@ -212,7 +226,7 @@ a:hover {
 }
 
 .page1 .btn {
-    margin-top: 41px;  
+    margin-top: 41px;
 }
 
 
@@ -317,7 +331,7 @@ header h1 a {
     display: inline-block;
     overflow: hidden;
     font-size: 0;
-    line-height: 0;    
+    line-height: 0;
     text-indent: -999px;
     transition: 0s ease;
     -o-transition: 0s ease;
@@ -401,7 +415,7 @@ header h1 a img {
 .circle div {
     background-color: #000;
     opacity: 0;
-    border-radius: 500px;    
+    border-radius: 500px;
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -787,7 +801,7 @@ header h1 a img {
     border: none;
     text-indent: -999px;
     z-index: 20;
-    background: url(../images/totop.png) no-repeat left 0; 
+    background: url(../images/totop.png) no-repeat left 0;
     transition: 0s ease;
     -o-transition: 0s ease;
     -webkit-transition: 0s ease;
@@ -823,7 +837,7 @@ header h1 a img {
         font-size: 28px !important;
     }
 
-    .ih-item.circle, 
+    .ih-item.circle,
     .ih-item.circle .img {
         width: 220px !important;
         height: 220px !important;
@@ -832,7 +846,7 @@ header h1 a img {
 }
 @media only screen and (max-width: 979px) {
 
-    .ih-item.circle, 
+    .ih-item.circle,
     .ih-item.circle .img {
         width: 172px !important;
         height: 172px !important;
@@ -865,11 +879,11 @@ header h1 a img {
         margin-left: 0;
         margin-top: 30px;
     }
-    
-     .map figure,  
-     .map figure iframe,  
+
+     .map figure,
+     .map figure iframe,
      #form input,
-     #form textarea,  
+     #form textarea,
      #form .success {
         width: 100% !important;
         float: none !important;
@@ -897,7 +911,7 @@ header h1 a img {
     .address1 dd span  {
         min-width: 0;
     }
-    
+
 
     .banner {
         width: 370px;
@@ -932,16 +946,16 @@ header h1 a img {
 }
 
 @media only screen and (max-width: 767px) {
-  
-    .circle {
-        margin-bottom: 30px;
-    }
 
     .circle {
         margin-bottom: 30px;
     }
 
-    .ih-item.circle, 
+    .circle {
+        margin-bottom: 30px;
+    }
+
+    .ih-item.circle,
     .ih-item.circle .img {
         width: 420px !important;
         height: 420px !important;
@@ -985,7 +999,7 @@ header h1 a img {
 
     .circle .c_caption .title {
         font-size: 36px;
-     } 
+     }
 
     .banner {
         float: none !important;
@@ -1050,8 +1064,8 @@ header h1 a img {
 
 
 @media only screen and (max-width: 479px) {
-    
-    .ih-item.circle, 
+
+    .ih-item.circle,
     .ih-item.circle .img {
         width: 300px !important;
         height: 300px !important;
@@ -1065,5 +1079,5 @@ header h1 a img {
 
     .ih-item.circle.effect2 .info p {
         font-size: 18px !important;
-    }    
+    }
 }

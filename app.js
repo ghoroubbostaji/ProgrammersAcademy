@@ -113,11 +113,31 @@ app.post('/sessions', (req, res) =>
   s.save();
   res.send(`Success fully add the Session`)
 });
+app.get('/programmingLanguages', (req, res) =>
+{
+  Session.find( (err, mySessions) => {
+    res.render('pages/programmingLanguages', {title: 'Sessions', sessions: mySessions })
+  });
 
+});
 app.get('/all-sessions', (req, res) =>
 {
   Session.find( (err, mySessions) => {
     res.render('pages/all-sessions', {title: 'Sessions', sessions: mySessions })
+  });
+
+});
+app.get('/trainers', (req, res) =>
+{
+  Session.find( (err, mySessions) => {
+    res.render('pages/trainers', {title: 'Sessions', sessions: mySessions })
+  });
+
+});
+app.get('/trainees', (req, res) =>
+{
+  Session.find( (err, mySessions) => {
+    res.render('pages/trainees', {title: 'Sessions', sessions: mySessions })
   });
 
 });
