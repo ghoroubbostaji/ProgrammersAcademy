@@ -12,6 +12,11 @@ var passportLocalMongoose = require("passport-local-mongoose");
 
 const port = 3000;
 
+Registertitle="Register";
+Registerref="/register";
+loginout="Sign In";
+loginoutref="/login";
+
 current_path = __dirname;
 
 app.use(bodyParser.urlencoded({extended : true}) ); //parses data coming from html
@@ -90,6 +95,8 @@ app.get('/admin', (req, res) => res.render("pages/admin", {title: 'Admin'}) );
 app.get('/services', (req, res) => res.render("pages/services", {title: 'Services'}) );
 app.get('/contacts', (req, res) => res.render("pages/contacts", {title: 'Contacts'}) );
 app.get('/aboutus', (req, res) => res.render("pages/aboutus", {title: 'About Us'}) );
+app.get('/profile', (req, res) => res.render("pages/profile", {title: 'Profile'}) );
+
 
 app.get('/create_session', (req, res) => res.render("pages/create_session", {title: 'New Session'}) );
 app.get('/reminde', (req, res) => res.render("pages/reminde", {title: 'Reminde'}) );
@@ -98,6 +105,14 @@ app.get('/invite', (req, res) =>
   Session.find( (err, mySessions) => {
     res.render('pages/invite', {title: 'Sessions', sessions: mySessions })
   });
+
+});
+
+app.get('/logout', (req, res) =>{ res.redirect("/");
+Registertitle="Register";
+Registerref="/register";
+loginout="Sign In";
+loginoutref="/login";
 
 });
 
@@ -231,7 +246,21 @@ app.post('/login-page', (req,res) =>
 
 
       }
-      else{ console.log(`thnks`)}
+      else{ console.log(`thnks`)
+
+        if (item==null)console.log("not found");//wrong user name
+
+        else {if (item.pw==req.body.pw){console.log(" found");
+        Registertitle=item.email;
+        Registerref="/profile";
+        loginout="Sign Out";
+        loginoutref="/logout";
+         res.render("pages/index", {title: 'Home'}) ;}
+
+        else console.log("not correct");//wrong password
+      }
+
+      }
     });
 
 });
