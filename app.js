@@ -131,7 +131,7 @@ app.post('/sessions', (req, res) =>
     sdate:            req.body.sdate
   });
   s.save();
-  res.send(`Success fully add the Session`)
+  res.send(`Success fully add the Session`);
 });
 app.get('/programmingLanguages', (req, res) =>
 {
@@ -149,15 +149,15 @@ app.get('/all-sessions', (req, res) =>
 });
 app.get('/trainers', (req, res) =>
 {
-  Session.find( (err, mySessions) => {
-    res.render('pages/trainers', {title: 'Our trainers', sessions: mySessions })
+    Session.find( (err, mySessions) => {
+    res.render('pages/trainers', {title: 'Our trainers', sessions: mySessions });
   });
 
 });
 app.get('/trainees', (req, res) =>
 {
   Session.find( (err, mySessions) => {
-    res.render('pages/trainees', {title: 'Trainees', sessions: mySessions })
+    res.render('pages/trainees', {title: 'Trainees', sessions: mySessions });
   });
 
 });
@@ -165,7 +165,7 @@ app.get('/trainees', (req, res) =>
 app.get('/register', (req, res) =>
 {
   Session.find( (err, mySessions) => {
-    res.render('pages/register', {title: 'Register'})
+    res.render('pages/register', {title: 'Register'});
   });
 
 });
@@ -173,14 +173,14 @@ app.get('/register', (req, res) =>
 
 app.post('/trainees', (req, res) =>
 {
-  console.log(req.body)
+  console.log(req.body);
   const s = new Trainee({
     email:    req.body.email,
     pw:       req.body.pw,
     role:     "trainee"
   });
   s.save();
-  res.send(`add the Trainee Successfully`)
+  res.send(`add the Trainee Successfully`);
 });
 
 
@@ -221,12 +221,12 @@ app.get('/invite-session', (req, res) =>
   {
     for (t of trainee_list)
     {
-      send_email(t.email, req.query.sname )
+      send_email(t.email, req.query.sname );
     }
-    console.log('Emails Done!')
+    console.log('Emails Done!');
   });
 
-  res.send(`add the Trainee Successfully`)
+  res.send(`add the Trainee Successfully`);
 });
 
 
@@ -234,21 +234,16 @@ app.get('/invite-session', (req, res) =>
 app.post('/login-page', (req,res) =>
 {
     console.log(req.body);
-    console.log(`hi1`);
-
     Trainee.findOne({email: req.body.email}, function(err,item){
       if (item.email == 'gbostaji@kau.edu.sa')
       {
         console.log(`hi`);
-        // app.get('/admin', (req, res) => res.render("pages/admin", {title: 'Admin'}) );}
-        // app.render('pages/admin', {title: 'Admin'});
-           res.render("pages/admin", {title: 'Admin'}) ;
-
+        res.render("pages/admin", {title: 'Admin'}) ;
 
       }
-      else{ console.log(`thnks`)
+      else{
 
-        if (item==null)console.log("not found");//wrong user name
+      if (item==null)console.log("not found");//wrong user name
 
         else {if (item.pw==req.body.pw){console.log(" found");
         Registertitle=item.email;
@@ -265,10 +260,7 @@ app.post('/login-page', (req,res) =>
 
 });
 
-app.post('/kos', (req,res) =>
-{
-  console.log('thnks');
-});
+
 
 // app.get('/invite-session', (req, res) =>
 // {
