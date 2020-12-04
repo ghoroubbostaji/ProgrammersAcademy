@@ -9,7 +9,6 @@ var LocalStrategy = require("passport-local");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 
-
 const port = 3000;
 
 Registertitle="Register";
@@ -103,7 +102,7 @@ app.get('/reminde', (req, res) => res.render("pages/reminde", {title: 'Reminde'}
 app.get('/invite', (req, res) =>
 {
   Session.find( (err, mySessions) => {
-    res.render('pages/invite', {title: 'Sessions', sessions: mySessions })
+    res.render('pages/invite', {title: 'Sessions', sessions: mySessions });
   });
 
 });
