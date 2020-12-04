@@ -26,6 +26,12 @@
                 Already have an account? <a id="Reg" href="/login">Log in here</a>
               </div>
 <br /><br />
+              <label for="username" class="username">
+                User name:<input type="username" id="username"  name="username" placeholder="your name.." value="" data-constraints="@Required @Password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+              </label><br /><br />
+
+
+<br /><br />
               <label for="email" class="email">
                 Email:<input type="Email" id="email"  name="email" placeholder="name@example.com" value="" data-constraints="@Required @Password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
               </label><br /><br />
@@ -44,7 +50,7 @@
               <div class="clear"></div>
               <div id="buttonLoginMargin">
                 <div class="btns" id="bttn">
-                  <input type="reset" >
+                  <button class="btn" type="reset" style="font-size: 25px; padding-left: 26px; padding-right: 26px; padding-bottom:2px;">Reset </button>
                 </div>
               </div>
 
@@ -58,16 +64,20 @@
 
 <section>
 
-        <div id="Result"> </div>
+        <div id="Result" style="width:23%;	height: 36px;
+          border: 1px solid #d3cdcd; color: green;font: 300 20px/20px 'Open Sans', sans-serif;
+        margin-bottom:2rem;margin-left:38%; padding:10px; display: center;"> </div>
 
 
-        <div class="submitCreateSession">
+        <div style="margin-left: 45.5%; display: inline-block; ">
                 <!-- <button class="btn btn-primary" type="submit" onclick="send_to_server()" >Register </button> -->
-                <input  id="submitBut" onclick="send_to_server()" type="button" value="Register"/>
-                <br />
-                <div class="backTo">
-                  <a href="/">Back to Home Page </a>
-                </div>
+                <!-- <input  id="submitBut" onclick="send_to_server()" type="button" value="Register"/> -->
+          <button class="btn"  onclick="send_to_server()" type="submit" style="font-size: 25px; padding-left: 19px; padding-right: 19px; padding-bottom:2px;"> Register </button>
+
+          <br />
+        <div class="backTo">
+
+        </div>
         </div>
 
       <script>
@@ -81,7 +91,7 @@
 
         }).done( function (res_data) {
 
-              $("#Result").text('Successfully Register!!');
+              $("#Result").text('   Successfully Register!!');
 
         });
 

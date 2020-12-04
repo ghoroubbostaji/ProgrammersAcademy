@@ -55,6 +55,7 @@ module.exports = mongoose.model("User",UserSchema);
 // schema 2
 const SessionSchema = new mongoose.Schema (
   { sname: String,
+    stitle: String,
     instructor: String,
     instructor_email: String ,
     sdate: String
@@ -64,7 +65,8 @@ const Session = mongoose.model("Session", SessionSchema);
 
 // schema 3
 const TraineeSchema = new mongoose.Schema (
-  { email: String,
+  { username: String,
+    email: String,
     pw: String,
     role: String
   });
@@ -116,23 +118,7 @@ loginoutref="/login";
 
 });
 
-// app.post('/Login',(req, res) =>
-// {
-//   req.body.email
-// })
 
-
-app.post('/sessions', (req, res) =>
-{
-  const s = new Session({
-    sname:            req.body.sname,
-    instructor:       req.body.instructor,
-    instructor_email: req.body.instructor_email,
-    sdate:            req.body.sdate
-  });
-  s.save();
-  res.send(`Success fully add the Session`);
-});
 app.get('/programmingLanguages', (req, res) =>
 {
   Session.find( (err, mySessions) => {
@@ -170,11 +156,32 @@ app.get('/register', (req, res) =>
 
 });
 
+// app.post('/Login',(req, res) =>
+// {
+//   req.body.email
+// })
+
+
+app.post('/sessions', (req, res) =>
+{
+  const s = new Session({
+    sname:            req.body.sname,
+    stitle:           req.body.stitle,
+    instructor:       req.body.instructor,
+    instructor_email: req.body.instructor_email,
+    sdate:            req.body.sdate
+  });
+  s.save();
+  res.send(`Success fully add the Session`);
+});
+
+
 
 app.post('/trainees', (req, res) =>
 {
   console.log(req.body);
   const s = new Trainee({
+    username: req.body.username,
     email:    req.body.email,
     pw:       req.body.pw,
     role:     "trainee"
@@ -246,7 +253,7 @@ app.post('/login-page', (req,res) =>
       if (item==null)console.log("not found");//wrong user name
 
         else {if (item.pw==req.body.pw){console.log(" found");
-        Registertitle=item.email;
+        Registertitle="Welcome "+item.username + " !";
         Registerref="/profile";
         loginout="Sign Out";
         loginoutref="/logout";

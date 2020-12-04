@@ -9,27 +9,40 @@
   <%- include('../partials/header'); %>
 </header>
 
+
+
+
 <section class="content">
   <div class="container">
-    <div class="row">
+
+
+
+
+    <div class="row" >
       <div class="grid_12">
-        <h3 class="ta__center">Invite Trainees</h3>
+        <h3 class="ta__center">Invite Trainees ..</h3>
       </div>
 
-      <div  id="invite" >
+      <div id="invite" style="font-size: 1.2rem;line-height: 1.5;"><p style="color: #1f6f8b; font-size: 30px;"> Invite the Trainees to the following available sessions:</p>
 
-      <% sessions.forEach( (e) => { %>
+        <% sessions.forEach( (e) => { %>
 
-        <div>
-          <%= e.sname %>
-          <a  href="#" onclick="send_to_server('<%= e.sname %>')" >invite</a>
-          <!-- /invite-session?sname=<%= e.sname %> -->
-        </div>
+          <div>
+            <span style="color: #821752; ">&#3845;</span> <span style="font-weight: bold;"> <%= e.sname   %> </span> <span style="color: #821752; ">: </span><%= e.stitle %>
+            <a  href="#" onclick="send_to_server('<%= e.sname %>' ,'<%= e.stitle %>')" >invite</a>
+            <!-- /invite-session?sname=<%= e.sname %> -->
+          </div>
 
-      <% }); %>
+        <% }); %>
 
-    </div>
+      </div>
 
+
+      <!-- <div  id="invite"  >
+
+
+
+    </div> -->
 
           <div class="backToAdmin">
             <a id="Reg" href="/admin">Back to administration page</a>
@@ -61,7 +74,7 @@
 
               $("#Result").text('Sucssefully invite!!');
 
-              
+
         });
 
       }

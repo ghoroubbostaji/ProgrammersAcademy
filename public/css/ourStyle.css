@@ -3,7 +3,7 @@
 
 #loginPlace{  float: left; margin-left: 36%; }
 
-#buttonLoginMargin{  margin-right: 20%;  }
+#buttonLoginMargin{  margin-right: 34%;  }
 
 #adminMArgin{margin-bottom: 10%; }
 
@@ -25,11 +25,13 @@
 
 #sname{  padding: 10px; width: 100%; color: #615f5f;  }
 
-#invite{  font-size: 20px; margin-left: 43%;}
+#invite{  font-size: 20px; margin-left: 20%;}
 
 #invite a{color: #821752; text-decoration: underline;}
 
 #elem{color: #821752;}
+
+#submitLoginId{ display: inline-block; width: 100%;}
 
 .administratorLinks{
           margin-left: 42%;
@@ -44,7 +46,7 @@
 
 .haveAccount a:hover{  font-size: 15px;  }
 
-.createS_divs{  display: block;  }
+.createS_divs{   display: block;  }
 
 .backTo{    margin-top: 30px;
             margin-bottom:15%;
@@ -52,7 +54,7 @@
             text-decoration: underline;
           }
 
-.submitCreateSession{  margin-left: 37%; display: inline-block;  }
+.submitCreateSession{  margin-left: 45%; display: inline-block;  }
 
 .backToAdmin{ margin-top: 90px;
               /* margin-bottom:8%; */

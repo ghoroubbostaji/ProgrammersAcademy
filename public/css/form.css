@@ -171,7 +171,7 @@
 }
 
 .btns .btn {
-	margin-top: 0;	
+	margin-top: 0;
 	padding: 1px 30px 4px;
 }
 
@@ -257,7 +257,7 @@ span.lab {
 
 @media only screen and (max-width: 1199px) {
 #form label {
-	float: none !important;	
+	float: none !important;
 	width: 100%;
 	margin-left: 0 !important;
 }
@@ -323,11 +323,11 @@ span.lab {
 	margin-right: 0px !important;
 }
   .btns {
-		padding-bottom: 0;  
+		padding-bottom: 0;
   }
-  
+
   #form textarea {
-		height: 300px !important; 
+		height: 300px !important;
   }
 
    #form {
@@ -336,12 +336,12 @@ span.lab {
  #form {
  	margin-bottom: 40px;
  }
-  
+
 }
 @media only screen and (max-width: 479px) {
 
   #form textarea {
-		height: 200px !important;  
+		height: 200px !important;
   }
 }
 

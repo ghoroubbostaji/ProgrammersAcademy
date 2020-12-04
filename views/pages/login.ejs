@@ -21,7 +21,7 @@
             <div id="loginPlace">
 
                 <label class="name">
-                  <input type="text" id="email"  name="email" placeholder="User Name:" value="" data-constraints="@Required @JustLetters" />
+                  <input type="text" id="email"  name="email" placeholder="Email:" value="" data-constraints="@Required @JustLetters" />
 
                 </label>
                 <label class="email">
@@ -30,18 +30,35 @@
                 </label>
 
                 <div class="clear"></div>
-                <div id="buttonLoginMargin">
+
+                  <div id"submitLoginId" style="font-size: 40px; margin-left:20%;">
+                    <!-- <input type="reset" > -->
+                    <!-- <input type="submit" value="login"/> -->
+                    <button class="btn" type="submit" style="font-size: 25px; padding-left: 18px; padding-right: 18px; padding-bottom:2px;">Submit </button>
+                    <button class="btn" type="reset" style="font-size: 25px; padding-left: 21px; padding-right: 21px; padding-bottom:2px;">Reset </button>
+
+
+
+                  </div>
+
+                <div class="haveAccount">
+                  Don't have an account? <a id="Reg" href="/register">Sign up</a>
+                </div>
+
+
+
+                <!-- <div id="buttonLoginMargin">
                 <div class="btns" id="bttn">
                   <a href="#" data-type="reset" class="btn">clear</a>
-                  <!-- <a  data-type="submit" class="btn">Log in</a> -->
-                  <input  type="submit" value="login"/>
+                      <a  data-type="submit" class="btn">Log in</a>
+                  <input type="submit" value="login"/>
 
 
                 </div>
                 <div class="haveAccount">
                   Don't have an account? <a id="Reg" href="/Register.ejs">Sign up</a>
                 </div>
-              </div>
+              </div> -->
 
               </div>
           </form>
