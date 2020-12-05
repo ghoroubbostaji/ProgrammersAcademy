@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const session = require('express-session');
 
 
 var bodyParser = require('body-parser');
@@ -20,6 +21,14 @@ loginoutref="/login";
 current_path = __dirname;
 
 app.use(bodyParser.urlencoded({extended : true}) ); //parses data coming from html
+app.use(bodyParser.json())
+app.use(session({
+    secret: 'lorem ipsum',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {maxAge: 60000 * 15}
+}));
+
 //me
 app.use(require("express-session")({
     secret:"Miss white is my cat",
@@ -58,7 +67,7 @@ const SessionSchema = new mongoose.Schema (
     stitle: String,
     instructor: String,
     instructor_email: String ,
-    sdate: String
+    date: String
   });
 const Session = mongoose.model("Session", SessionSchema);
 
@@ -169,9 +178,10 @@ app.post('/sessions', (req, res) =>
     stitle:           req.body.stitle,
     instructor:       req.body.instructor,
     instructor_email: req.body.instructor_email,
-    sdate:            req.body.sdate
+    picker:            req.body.picker
   });
   s.save();
+  console.log(req.body.sdate)
   res.send(`Success fully add the Session`);
 });
 
