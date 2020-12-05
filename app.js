@@ -67,7 +67,7 @@ const SessionSchema = new mongoose.Schema (
     stitle: String,
     instructor: String,
     instructor_email: String ,
-    date: String
+    sdate: String
   });
 const Session = mongoose.model("Session", SessionSchema);
 
@@ -178,7 +178,7 @@ app.post('/sessions', (req, res) =>
     stitle:           req.body.stitle,
     instructor:       req.body.instructor,
     instructor_email: req.body.instructor_email,
-    picker:            req.body.picker
+    sdate:            req.body.sdate
   });
   s.save();
   console.log(req.body.sdate)
