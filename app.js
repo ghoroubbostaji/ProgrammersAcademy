@@ -51,15 +51,15 @@ var passportLocalMongoose = require("passport-local-mongoose");//me1
 
 mongoose.connect("mongodb://localhost:27017/academydb", {useUnifiedTopology: true, useNewUrlParser: true});
 
-// schema 1
-//me2
-var UserSchema = new mongoose.Schema({
-     username:String,
-     password:String
-});
+// // schema 1
+// //me2
+// var UserSchema = new mongoose.Schema({
+//      username:String,
+//      password:String
+// });
 
-UserSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model("User",UserSchema);
+// UserSchema.plugin(passportLocalMongoose);
+// module.exports = mongoose.model("User",UserSchema);
 
 // schema 2
 const SessionSchema = new mongoose.Schema (
@@ -67,7 +67,8 @@ const SessionSchema = new mongoose.Schema (
     stitle: String,
     instructor: String,
     instructor_email: String ,
-    sdate: String
+    sdate: String,
+    temails: [String]
   });
 const Session = mongoose.model("Session", SessionSchema);
 
@@ -77,7 +78,8 @@ const TraineeSchema = new mongoose.Schema (
   { username: String,
     email: String,
     pw: String,
-    role: String
+    role: String,
+    sessions: [SessionSchema]
   });
 
 const Trainee = mongoose.model("Trainee", TraineeSchema);
@@ -135,10 +137,17 @@ app.get('/programmingLanguages', (req, res) =>
   });
 
 });
+
 app.get('/all-sessions', (req, res) =>
 {
-  Session.find( (err, mySessions) => {
-    res.render('pages/all-sessions', {title: 'Sessions', sessions: mySessions })
+  Session.find( (err, mySessions) => 
+  {
+    res.render('pages/all-sessions', {
+      title: 'Sessions', 
+      sessions: mySessions,
+      current_user:current_user 
+    });
+      
   });
 
 });
@@ -236,8 +245,7 @@ app.get('/invite-session', (req, res) =>
 {
   Trainee.find( (err, trainee_list) =>
   {
-    for (t of trainee_list)
-    {
+    for (t of trainee_list){
       send_email(t.email, req.query.sname );
     }
     console.log('Emails Done!');
@@ -247,36 +255,57 @@ app.get('/invite-session', (req, res) =>
 });
 
 
-
+current_user = ''
 app.post('/login-page', (req,res) =>
 {
     console.log(req.body);
-    Trainee.findOne({email: req.body.email}, function(err,item){
+    Trainee.findOne({email: req.body.email}, function(err, item){
       if (item.email == 'gbostaji@kau.edu.sa')
       {
         console.log(`hi`);
         res.render("pages/admin", {title: 'Admin'}) ;
-
       }
-      else{
-
-      if (item==null)console.log("not found");//wrong user name
-
-        else {if (item.pw==req.body.pw){console.log(" found");
-        Registertitle="Welcome "+item.username + " !";
-        Registerref="/profile";
-        loginout="Sign Out";
-        loginoutref="/logout";
-         res.render("pages/index", {title: 'Home'}) ;}
-
-        else console.log("not correct");//wrong password
+      else if (item==null)
+        console.log("not found");//wrong user name
+      else if (item.pw==req.body.pw)
+      {
+        console.log(" found");
+        current_user = req.body.email
+        Registertitle ="Welcome "+item.username + " !";
+        Registerref   ="/profile";
+        loginout      ="Sign Out";
+        loginoutref   ="/logout";
+        res.render("pages/index", {
+          title: 'Home', 
+          current_user: current_user});
       }
-
+      else {
+          console.log("not correct");//wrong password
       }
     });
 
 });
 
+app.get('/enroll', (req, res) =>
+{
+  Session.findOne({_id: req.query.session}, (err, mySession) => 
+  {
+    console.log(mySession)
+    t = Trainee.findOne({email: req.query.email}, (err, t) => {
+      
+      t.sessions.push(mySession);
+      t.save();
+
+      mySession.temails.push(t.email);
+      mySession.save();
+      
+      res.send('OK registered !!!!');  
+      console.log(t)
+    });
+      
+  });
+
+});
 
 
 // app.get('/invite-session', (req, res) =>

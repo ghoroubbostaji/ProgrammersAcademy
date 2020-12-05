@@ -74,16 +74,18 @@
 
 <section class="content">
   <div class="container">
-    <div class="row">
+    <div class="row" >
       <!-- <div class="grid_12">
         <h3 class="ta__center">Explore all courses</h3>
       </div> -->
 
       
       <% sessions.forEach( (e) => { %>
-
-        <div>
-           <span style="font-weight: bold;"> <%= e.stitle   %> </span> <span style="color: #821752; ">: </span><%= e.instructor %>
+        
+        <div style="border: #821752;">
+           <span style="font-weight: bold;"> <%= e.stitle   %> </span> 
+           <span style="color: #821752; ">: <%= e.instructor %> </span>
+           <a href="/enroll?email=<%= current_user   %>&session=<%= e._id   %>"> <span>Register</span> </a>
         </div>
 
       <% }); %>

@@ -20,27 +20,27 @@
         <h3 class="ta__center">Invite Trainees ..</h3>
       </div>
 
-      <div id="invite" style="font-size: 1.2rem;line-height: 1.5;"><p style="color: #1f6f8b; font-size: 30px;"> Invite the Trainees to the following available sessions:</p>
+      <div id="invite" style="font-size: 1.2rem;line-height: 1.5;">
+        <p style="color: #1f6f8b; font-size: 30px;"> Invite the Trainees to the following available sessions:</p>
 
-        <% sessions.forEach( (e) => { %>
+        <% sessions.forEach( (s) => { %>
 
           <div>
-            <span style="color: #821752; ">&#3845;</span> <span style="font-weight: bold;"> <%= e.sname   %> </span> <span style="color: #821752; ">: </span><%= e.stitle %>
-            <a  href="#" onclick="send_to_server('<%= e.sname %>' ,'<%= e.stitle %>')" >invite</a>
-            <!-- /invite-session?sname=<%= e.sname %> -->
+            <span style="color: #821752; ">&#3845;</span> 
+            <span style="font-weight: bold;"> <%= s.sname   %> </span> 
+            <span style="color: #821752; ">: </span><%= s.stitle %>
+            <a  href="#" onclick="send_to_server('<%= s.sname %>' ,'<%= s.stitle %>')" >invite</a>
+            <a  href="/remind?session=<%= s._id %>" >Remind</a>
+            <!-- /invite-session?sname= -->
           </div>
 
         <% }); %>
 
       </div>
-
           <div class="backToAdmin">
             <a id="Reg" href="/admin">Back to administration page</a>
           </div>
-
-
-
-    </div>
+      </div>
   </div>
 </section>
 
