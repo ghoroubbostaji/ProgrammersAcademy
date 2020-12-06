@@ -140,14 +140,14 @@ app.get('/programmingLanguages', (req, res) =>
 
 app.get('/all-sessions', (req, res) =>
 {
-  Session.find( (err, mySessions) => 
+  Session.find( (err, mySessions) =>
   {
     res.render('pages/all-sessions', {
-      title: 'Sessions', 
+      title: 'Sessions',
       sessions: mySessions,
-      current_user:current_user 
+      current_user:current_user
     });
-      
+
   });
 
 });
@@ -211,7 +211,7 @@ app.post('/trainees', (req, res) =>
 
 
 
-//--------SEND EMAIL-----------------------
+//--------SEND EMAIL (invite)-----------------------
 
 function send_email(to_email, session_name)
 {
@@ -255,14 +255,60 @@ app.get('/invite-session', (req, res) =>
 });
 
 
-current_user = ''
+//--------SEND EMAIL (reminde)-----------------------
+
+function send_email1(to_email, session_name)
+{
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'ghoroub.bostagi@gmail.com',
+      pass: 'kgsupwbgggkidhof'
+    }
+  });
+
+  msg1 = `WE are reminde you to the ${session_name} course, please don't late`
+  var mailOptions = {
+    from: 'no-reply@gmail.com',
+    to: to_email,
+    subject: 'Reminder email 😀',
+    text: msg1
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+}
+//-------------------------------
+
+
+app.get('/remind', (req, res) =>
+{
+  Session.find( (err, trainees_session) =>
+  {
+    for (t of trainees_session){
+      send_email1(t.temails, req.query.stitle );
+    }
+    console.log('Emails Done!');
+  });
+
+  res.send(`Email sent Successfully`);
+});
+//-------------------------------
+
+
+current_user = '';
 app.post('/login-page', (req,res) =>
 {
     console.log(req.body);
     Trainee.findOne({email: req.body.email}, function(err, item){
       if (item.email == 'gbostaji@kau.edu.sa')
       {
-        console.log(`hi`);
+        // console.log(`hi`);
         res.render("pages/admin", {title: 'Admin'}) ;
       }
       else if (item==null)
@@ -270,13 +316,13 @@ app.post('/login-page', (req,res) =>
       else if (item.pw==req.body.pw)
       {
         console.log(" found");
-        current_user = req.body.email
+        current_user = req.body.email;
         Registertitle ="Welcome "+item.username + " !";
         Registerref   ="/profile";
         loginout      ="Sign Out";
         loginoutref   ="/logout";
         res.render("pages/index", {
-          title: 'Home', 
+          title: 'Home',
           current_user: current_user});
       }
       else {
@@ -288,21 +334,22 @@ app.post('/login-page', (req,res) =>
 
 app.get('/enroll', (req, res) =>
 {
-  Session.findOne({_id: req.query.session}, (err, mySession) => 
+  Session.findOne({_id: req.query.session}, (err, mySession) =>
   {
-    console.log(mySession)
+    console.log(mySession);
     t = Trainee.findOne({email: req.query.email}, (err, t) => {
-      
+
       t.sessions.push(mySession);
       t.save();
 
       mySession.temails.push(t.email);
       mySession.save();
-      
-      res.send('OK registered !!!!');  
-      console.log(t)
+
+      // res.send('OK registered !!!!');
+      res.render("pages/index", {title: 'Home'}) ;
+      console.log(t);
     });
-      
+
   });
 
 });

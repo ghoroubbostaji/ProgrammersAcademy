@@ -17,20 +17,22 @@
 
     <div class="row" >
       <div class="grid_12">
-        <h3 class="ta__center">Invite Trainees ..</h3>
+        <h3 class="ta__center">Invite and Remind Trainees ..</h3>
       </div>
 
       <div id="invite" style="font-size: 1.2rem;line-height: 1.5;">
-        <p style="color: #1f6f8b; font-size: 30px;"> Invite the Trainees to the following available sessions:</p>
+        <p style="color: #1f6f8b; font-size: 30px;"> Invite or Remind the Trainees to the following available sessions:</p>
 
         <% sessions.forEach( (s) => { %>
 
           <div>
-            <span style="color: #821752; ">&#3845;</span> 
-            <span style="font-weight: bold;"> <%= s.sname   %> </span> 
+            <span style="color: #821752; ">&#3845;</span>
+            <span style="font-weight: bold;"> <%= s.sname   %> </span>
             <span style="color: #821752; ">: </span><%= s.stitle %>
             <a  href="#" onclick="send_to_server('<%= s.sname %>' ,'<%= s.stitle %>')" >invite</a>
-            <a  href="/remind?session=<%= s._id %>" >Remind</a>
+            <a  href="#" onclick="send_to_server1('<%= s._id %>' ,'<%= s.stitle %>')" >Remind</a>
+
+            <!-- <a  href="/remind?session=<%= s._id %>" >Remind</a> -->
             <!-- /invite-session?sname= -->
           </div>
 
@@ -54,7 +56,6 @@
 
       function send_to_server(e)
       {
-
         $.ajax({
             type: 'GET',
             url: `/invite-session?sname=${e}` ,
@@ -63,10 +64,23 @@
         }).done( function (res_data) {
 
               $("#Result").text('Sucssefully invite!!');
-
-
         });
+      }
+      </script>
 
+      <script>
+
+      function send_to_server1(e)
+      {
+        $.ajax({
+            type: 'GET',
+            url: `/remind?session=${e}` ,
+            // data: $('#invite').serialize(),
+
+        }).done( function (res_data) {
+
+              $("#Result").text('Sucssefully reminde!!');
+        });
       }
 
       </script>
