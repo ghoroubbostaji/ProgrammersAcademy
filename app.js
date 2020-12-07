@@ -311,8 +311,11 @@ app.post('/login-page', (req,res) =>
         // console.log(`hi`);
         res.render("pages/admin", {title: 'Admin'}) ;
       }
-      else if (item==null)
-        console.log("not found");//wrong user name
+      else if (item.email == null)
+      {console.log("not found");//wrong user name
+        res.render('pages/register', {title: 'Register'});
+      }
+
       else if (item.pw==req.body.pw)
       {
         console.log(" found");
@@ -327,6 +330,7 @@ app.post('/login-page', (req,res) =>
       }
       else {
           console.log("not correct");//wrong password
+          res.render('pages/register', {title: 'Register'});
       }
     });
 
